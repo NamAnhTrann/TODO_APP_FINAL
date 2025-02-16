@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class DatabaseService {
   private LocalapiUrl: string  = "http://localhost:9090";
-  private apiKey = 'ae797d8c6c4ebad7430f7c8a8b4b8e35'; // Replace with your actual API key
+  private apiKey = 'ae797d8c6c4ebad7430f7c8a8b4b8e35'; //
   private apiUrl = 'https://api.openweathermap.org/data/2.5';
 
 
