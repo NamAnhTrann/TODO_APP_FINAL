@@ -1,0 +1,67 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110px; /* Normal sidebar width */
+    height: 100vh;
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+    z-index: 1000;
+    overflow: hidden;
+  }
+
+  /* Sidebar when Collapsed */
+  .sidebar.collapsed {
+    width: 60px; /* Shrinks but remains visible */
+    opacity: 1;
+  }
+
+  /* Hide menu items smoothly */
+  .sidebar.collapsed ul {
+    opacity: 0;
+    pointer-events: none; /* Prevents interaction */
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .sidebar ul {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  /* Keep button visible and positioned properly */
+  button {
+    color: #A5B4FC !important;
+    z-index: 1100;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    align-self: flex-end; /* Keeps button aligned */
+    transition: transform .2s;
+
+  }
+  button:hover{
+    color: #4338CA !important;
+    transform:scale(1.25);
+  }
+
+  /* Ensure icons are always black */
+.nav-link i {
+    color: #A5B4FC !important;
+    font-size: 24px; /* Adjust size if needed */
+    transition: transform .2s;
+
+  }
+
+  /* Ensure icons remain black even when hovered */
+  .nav-link:hover i {
+    color: #4338CA !important;
+    transform:scale(1.25);
+  }
+
+  /* Hide text when sidebar is collapsed */
+  .sidebar.collapsed .sidebar-text {
+    display: none;
+  }
+

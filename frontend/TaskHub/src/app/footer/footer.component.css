@@ -1,0 +1,12 @@
+.footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .footer a:hover {
+    color: #f8d210; /* Highlight color on hover */
+  }
+  
+  .footer i {
+    font-size: 1.5rem;
+  }
+  

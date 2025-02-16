@@ -1,0 +1,45 @@
+<aside class="fixed top-0 left-0 h-full w-32 bg-indigo-300 text-white p-4 z-50">
+  <app-side-bar [userId]="userId"></app-side-bar>
+</aside>
+<section class="d-flex flex-column align-items-center min-vh-100 bg-light p-4">
+  <!-- Title -->
+  <h1 class="mb-4 fs-3 text-primary">Sticky Wall</h1>
+
+  <!-- Input Form -->
+  <form (submit)="addDaily()" class="w-50 text-center mb-4">
+    <div class="mb-2">
+      <label for="dailyTaskName" class="form-label fs-5">Add a Sticky Note</label>
+      <input
+        type="text"
+        id="dailyTaskName"
+        class="form-control form-control-lg"
+        [(ngModel)]="dailyData.dailyTaskName"
+        name="dailyTaskName"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-success btn-lg w-100">Post Note</button>
+  </form>
+
+  <!-- Sticky Notes Board (Now expands naturally) -->
+  <div class="sticky-wall d-flex flex-wrap gap-3 justify-content-center w-100">
+    @for (daily of dailies; track $index) {
+      <div class="sticky-note">
+        <p class="fw-bold">{{ daily.dailyTaskName }}</p>
+        <button (click)="removeDaily(daily._id)" class="btn btn-danger btn-sm mt-2">
+          <i class="bi bi-trash"></i> Delete
+        </button>
+      </div>
+    }
+  </div>
+
+  <!-- Dashboard Link (Now moves down when sticky notes are added) -->
+  <div class="mt-4 pt-3">
+    <a class="btn btn-outline-dark btn-lg px-4 py-2"
+      [routerLink]="['/dashboard', userId]"
+      title="Dashboard">
+      <i class="bi bi-house-door"></i> Back to Dashboard
+    </a>
+  </div>
+</section>
+

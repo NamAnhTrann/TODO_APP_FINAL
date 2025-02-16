@@ -1,0 +1,25 @@
+:host {
+  font-family: 'Roboto', sans-serif;
+}
+
+.text-xl {
+  transition: transform .2s;
+
+}
+
+.text-xl:hover{
+  transform:scale(1.05);
+  cursor: pointer;
+}
+
+
+.custom-btn{
+  transition: transform .2s !important;
+
+}
+
+.custom-btn:hover{
+  transform:scale(1.1) !important;
+  cursor: pointer !important;
+
+}

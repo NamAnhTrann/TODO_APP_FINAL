@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="login-container p-4 rounded shadow bg-white">
+      <h3 class="text-center mb-4">Login</h3>
+  
+      <!-- Email & Password Login Form -->
+      <form>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+  
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+  
+        <button type="submit" class="btn btn-primary w-100">Login</button>
+      </form>
+  
+      <div class="text-center my-3">OR</div>
+  
+      <!-- Google Sign-In Button -->
+      <button class="btn btn-danger w-100 d-flex align-items-center justify-content-center gap-2" (click)="googleSignup()">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Logo" width="20">
+        Sign in with Google
+      </button>
+
+    </div>
+  </div>
+  

@@ -1,0 +1,74 @@
+<!-- Sidebar (Always in the DOM) -->
+<nav class="sidebar h-full d-flex flex-column p-3 fixed top-0 left-0 bg-gray-900 text-white z-50 transition-all duration-300"
+     [ngClass]="{ 'collapsed': isCollapse, 'w-16 md:w-24': isCollapse, 'w-28 md:w-32': !isCollapse }">
+
+  <!-- Sidebar Toggle Button (Always Visible) -->
+  <div class="toggle-container d-flex justify-content-center ">
+    <button class="btn border-0 toggle-btn text-white " (click)="toggleNavBarCollapse()"
+            [title]="isCollapse ? 'Open Sidebar' : 'Close Sidebar'">
+      <i [ngClass]="isCollapse ? 'bi bi-list' : 'bi bi-list'"></i>
+    </button>
+  </div>
+
+
+
+   <!-- Navigation Links (Hide Items When Collapsed) -->
+<!-- Sidebar Navigation (Flexbox for proper alignment) -->
+<ul class="nav flex-column align-items-center h-100 space-y-5">
+  <li class="nav-item">
+    <a class="nav-link d-flex flex-column align-items-center justify-content-center"
+    [routerLink]="['/dashboard', userId]"
+    title="Main Dashboard">
+    <i class="bi bi-house-door"></i>
+    <span class="sidebar-text"></span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link d-flex flex-column align-items-center justify-content-center"
+    [routerLink]="['/daily-task', userId]"
+    title="Quick Task">
+    <i class="bi bi-card-checklist"></i>
+      <span class="sidebar-text"></span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link d-flex flex-column align-items-center justify-content-center" routerLink="/messages" title="Messages">
+      <i class="bi bi-chat-dots"></i>
+      <span class="sidebar-text"></span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link d-flex flex-column align-items-center justify-content-center" routerLink="/team" title="Team">
+      <i class="bi bi-people"></i>
+      <span class="sidebar-text"></span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link d-flex flex-column align-items-center justify-content-center" routerLink="/analytics" title="Analytics">
+      <i class="bi bi-bar-chart-line"></i>
+      <span class="sidebar-text"></span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link d-flex flex-column align-items-center justify-content-center" routerLink="/help" title="Help">
+      <i class="bi bi-question-circle"></i>
+      <span class="sidebar-text"></span>
+    </a>
+  </li>
+
+  <!-- Push Logout Button to Bottom -->
+  <li class="nav-item mt-auto mb-4">
+    <a class="nav-link d-flex flex-column align-items-center justify-content-center text-danger"
+       routerLink="." (click)="logout()" title="Logout">
+      <i class="bi bi-box-arrow-right"></i>
+      <span class="sidebar-text"></span>
+    </a>
+  </li>
+</ul>
+
+
+
+
+  </nav>

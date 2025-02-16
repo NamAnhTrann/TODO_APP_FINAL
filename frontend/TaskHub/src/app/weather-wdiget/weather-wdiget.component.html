@@ -1,0 +1,30 @@
+<div id="divWeatherMain">
+  @if (weather?.isDay) {
+    <div class="weatherWidgetRow">
+      <i class="fas fa-3x fa-sun sun"></i>
+    </div>
+  } @else {
+    <div class="weatherWidgetRow">
+      <i class="fas fa-3x fa-moon moon"></i>
+    </div>
+  }
+
+  <div class="weatherWidgetRow cloudDiv">
+    <i class="fas fa-cloud fa-3x cloud"></i>
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 32px; margin-top: 5px;">
+    {{ weather?.temp_celcius }}°
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 12px;">
+    {{ weather?.temp_min }}° / {{ weather?.temp_max }}°
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 12px;">
+    Feels Like: {{ weather?.temp_feels_like }}°
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 25px; margin-top: 10px;">
+    {{ weather?.name }}
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 12px;">
+    Humidity: {{ weather?.main.humidity }}%
+  </div>
+</div>
