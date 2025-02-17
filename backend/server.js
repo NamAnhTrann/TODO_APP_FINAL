@@ -21,6 +21,8 @@ const db_url = process.env.MONGO_DB;
 const allowedConnection = [
   "http://localhost:4200",
   "https://TaskHub.onrender.com",
+  "https://taskhub-6hajkuls0-namanhtranns-projects.vercel.app",
+  "https://taskhub-cyan.vercel.app",
 ];
 
 //using cors
@@ -43,6 +45,9 @@ app.listen(port_no, function (err) {
   } else {
     console.log("Error occured", err);
   }
+});
+app.get("/", (req, res) => {
+  res.send("✅ Backend is Running!");
 });
 
 async function connectDB() {
