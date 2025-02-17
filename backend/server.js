@@ -23,6 +23,7 @@ const allowedConnection = [
   "https://TaskHub.onrender.com",
   "https://taskhub-6hajkuls0-namanhtranns-projects.vercel.app",
   "https://taskhub-cyan.vercel.app",
+  "https://taskhub-sooty.vercel.app",
 ];
 
 //using cors
