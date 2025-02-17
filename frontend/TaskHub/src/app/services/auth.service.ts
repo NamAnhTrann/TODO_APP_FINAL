@@ -5,11 +5,11 @@ import {firebaseConfig} from '../firebase_config';
 import { lastValueFrom, Observable } from 'rxjs';
 
 
-import { 
-  getAuth, 
-  signInWithPopup, 
-  GoogleAuthProvider, 
-  signOut, 
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
   onAuthStateChanged,
   createUserWithEmailAndPassword
 } from "firebase/auth";
@@ -37,9 +37,11 @@ export class AuthService {
   user: any = null;
 
   private LocalapiUrl: string  = "http://localhost:9090";
-  
+  private onlineUrl: string = "https://todo-app-final.onrender.com"
 
-  constructor(private http: HttpClient) { 
+
+
+  constructor(private http: HttpClient) {
 
     this.app = initializeApp(firebaseConfig);
     this.auth = getAuth();
@@ -56,7 +58,7 @@ export class AuthService {
         this.displayName = user.displayName || '';
         this.email = user.email || '';
         this.photoUrl = user.photoURL || '';
-  
+
         this.sendUidBackend(this.uid, this.email).subscribe(
           response => {
             console.log("Sent back to backend", response);
@@ -66,20 +68,20 @@ export class AuthService {
           }
         );
       }
-      return ""; 
+      return "";
     });
   }
 
   sendUidBackend(uid: string, email:string){
     const body = {uid, email};
     console.log(`sent : ${email} and ${uid}`)
-    return this.http.post(`${this.LocalapiUrl}/api/save-user`, body, httpOptions)
+    return this.http.post(`${this.onlineUrl}/api/save-user`, body, httpOptions)
   }
 
-  //State Changes
+  //State Changest
   listenForAuthChanges(): void {
     console.log(" Listening for authentication state changes...");
-    
+
     onAuthStateChanged(this.auth, (user) => {
       if (user) {
         this.uid = user.uid;
@@ -103,11 +105,11 @@ export class AuthService {
   }
 
   getUserIdByFirebaseUid(uid: string) {
-    return this.http.get<{ userId: string }>(`${this.LocalapiUrl}/get-user/${uid}`, httpOptions);
+    return this.http.get<{ userId: string }>(`${this.onlineUrl}/get-user/${uid}`, httpOptions);
   }
 
   isUserProfileComplete(userId: string): Observable<ProfileCheckResponse> {
-    return this.http.get<ProfileCheckResponse>(`${this.LocalapiUrl}/api/checkUserProfile/${userId}`);
+    return this.http.get<ProfileCheckResponse>(`${this.onlineUrl}/api/checkUserProfile/${userId}`);
   }
 
   logout() {
@@ -115,7 +117,7 @@ export class AuthService {
       console.log("User logged out");
     })
   }
-  
-  
+
+
 
 }
